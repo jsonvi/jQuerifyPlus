@@ -19,7 +19,11 @@ chrome.tabs.onSelectionChanged.addListener(function(tabId, changeInfo, tab){
 
 // Called when the user clicks on the browser action.
 chrome.browserAction.onClicked.addListener(function(tab) {
-	chrome.tabs.sendRequest(tab.id, {action: "embed"}, function(response) {
+    start_embed(tab);
+});
+
+function start_embed (tab) {
+    chrome.tabs.sendRequest(tab.id, {action: "embed"}, function(response) {
 		if (response.result == 'embeded') {
 			save_flag(tab.id, "$");
 			chrome.browserAction.setBadgeText({text: "$"});
@@ -37,7 +41,8 @@ chrome.browserAction.onClicked.addListener(function(tab) {
 			chrome.browserAction.setTitle({title: '"jQuery" is NOT embeded.'});
 		}
 	});
-});
+
+}
 
 function is_jq_embeded (tabId, info, tab) {
 	chrome.tabs.sendRequest(tabId, {action: "is_embeded"}, function(response) {
@@ -55,6 +60,7 @@ function is_jq_embeded (tabId, info, tab) {
 			save_flag(tabId,0);
 			chrome.browserAction.setBadgeText({text: ""});
 			chrome.browserAction.setTitle({title: '"jQuery" is NOT embeded.'});
+            start_embed(tab);
 		}
 	});
 }
