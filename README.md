@@ -18,6 +18,12 @@ Alternatively, you can install it from source:
 The Options page can be reached via the button next to jQuerifyPlus on
 the Chrome Extensions page (`chrome://extensions`).
 
+Todo
+====
+
+ - Option Page
+ _ Url Filters for automatic embeding
+
 Release Notes
 -------------
 
