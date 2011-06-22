@@ -1,7 +1,7 @@
 jQuerifyPlus - Just another jQuerify.
 ========================================
 
-jQuerifyPlus is a Google Chrome Extension  based on jQuerify  that embed jQuery into any page. It allows You to use jQuery in the console shell.
+jQuerifyPlus is a Google Chrome Extension  based on [jQuerify](https://chrome.google.com/extensions/detail/gbmifchmngifmadobkcpijhhldeeelkc)  that embed jQuery into any page. It allows You to use jQuery in the console shell.
 
 __Installation instructions:__
 
