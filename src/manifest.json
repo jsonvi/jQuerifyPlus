@@ -11,9 +11,8 @@
    "icons": {
       "128": "jquerify_128.png"
    },
-   "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCxp3hLYS3XPaBu4vAy1LLPUp2ehspHZvJqmFuGOX7XBrGpl1v1IRLqg7yhEKRPBW0qzCoaLEG5Va3beyWZ3fJwIC8PFa7erStGIDDRVA/Pz9Y/pe32eeEQf/zd8JLTfX9n15HhLRPgjik8Uy+H1GG2JCJ++jdmj0FHUCo754CKSwIDAQAB",
-   "name": "jQuerify",
+   "name": "jQuerifyPlus",
    "permissions": [ "tabs", "http://*/*" ],
-   "update_url": "http://clients2.google.com/service/update2/crx",
-   "version": "1.3.0"
+   "update_url": "https://raw.github.com/jsonvi/jQuerifyPlus/master/updates.xml",
+   "version": "1.0.0"
 }
