@@ -8,7 +8,8 @@ chrome.extension.onRequest.addListener(
 			var prototype_embeded	= embeded.pe;
 
 			if (jq_embeded) {
-				sendResponse({result: "ignore"});
+                remove_embed_jquery();
+				sendResponse({result: "removed"});
 			} else {
 				if (!prototype_embeded) {
 					embed_jquery();
@@ -74,8 +75,30 @@ function embed_jquery () {
 	var head = document.getElementsByTagName('HEAD')[0];
 	var script = document.createElement('script');
 	script.src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js";
+    script.setAttribute("from","jquerifyplus");
 	script.type = 'text/javascript';
 	head.appendChild(script);
+}
+
+function remove_embed_jquery () {
+	var head = document.getElementsByTagName('HEAD')[0];
+	// Child nodes.
+	var childs = head.childNodes;
+
+	// Run through child nodes.
+	for (var i=0; i<childs.length; i++) {
+		if (
+			childs[i].src &&
+			childs[i].src.match(/jquery/i) &&
+            'jquerifyplus' == childs[i].getAttribute("from")
+		) {
+            head.removeChild(childs[i]);
+            var script = document.createElement('script');
+            script.innerHTML = 'window.jQuery = window.$ = null;';
+            script.type = 'text/javascript';
+            head.appendChild(script);
+        }
+	}
 }
 
 function safe_embed_jquery (resp) {
